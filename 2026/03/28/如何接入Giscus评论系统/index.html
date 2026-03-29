@@ -368,7 +368,7 @@
         async>
 </script>
 
-<h2 id="四、集成到博客"><a href="#四、集成到博客" class="headerlink" title="四、集成到博客"></a>四、集成到博客</h2><p>打开主题配置文件 _config.shiro.yml，找到 giscus 配置：</p>
+<h2 id="四、集成到博客"><a href="#四、集成到博客" class="headerlink" title="四、集成到博客"></a>四、集成到博客</h2><p>打开博客根目录主题配置文件 _config.shiro.yml （此处主题名称为shiro），找到 giscus 配置：</p>
 <p>giscus:<br>  enable: true  # 必须从 false 改为 true<br>  repo: yourname&#x2F;your-repo<br>  repo-id: R_kgxxxxxx<br>  category: Comments<br>  category-id: DIC_kwxxxxxx<br>  mapping: pathname<br>  theme: light<br>  lang: zh-CN</p>
 <p>修改后执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line"></span><br></pre></td></tr></table></figure>

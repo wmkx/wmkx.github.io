@@ -33,7 +33,7 @@
     <meta name="author" content="清风笑" />
     
     
-    <meta name="keywords" content="tag,标签,404" />
+    <meta name="keywords" content="GitHub+Hexo搭建个人博客部分tag标签页面显示404" />
     
 
     <!-- Open Graph -->
@@ -333,9 +333,9 @@
 
     <div class="prose-shiro">
         <p>搭建 Hexo + GitHub Pages 个人博客时，很多博主会遇到「玄学404」：标签首页正常、本地预览全正常，唯独部分标签线上访问报 GitHub 官方404，即便文件完整、路径匹配也无法解决。核心原因并非配置错误，而是 GitHub Pages 平台原生预留关键字拦截机制——这是 Hexo 博客圈流传多年的「祖传深坑」。本文整理完整黑名单、核心原理及最简避坑方案，帮你一次性规避。</p>
-<h2 id="一、核心原理：为什么会触发拦截？"><a href="#一、核心原理：为什么会触发拦截？" class="headerlink" title="一、核心原理：为什么会触发拦截？"></a>一、核心原理：为什么会触发拦截？</h2><p>GitHub Pages 有双层路由匹配规则，优先级：平台内置预留路由 &gt; 用户静态文件路由。当访问的 URL 命中平台预留关键字时，服务器会优先走官方内部路由，完全忽略用户仓库内的同名静态文件，直接返回404。<br>其中，Hexo、Jekyll 作为主流建站引擎，被 GitHub 纳入核心预留黑名单；此外，平台接口、服务器相关词汇也会被拦截，这也是部分标签无故404的根本原因。<br>补充：GitHub Pages 服务器为 Linux 环境，路径大小写严格区分，但即便修改关键字大小写，只要词根属于黑名单，依旧会被拦截。</p>
+<h2 id="一、核心原理：为什么会触发拦截？"><a href="#一、核心原理：为什么会触发拦截？" class="headerlink" title="一、核心原理：为什么会触发拦截？"></a>一、核心原理：为什么会触发拦截？</h2><p>GitHub Pages 有双层路由匹配规则，优先级：平台内置预留路由 &gt; 用户静态文件路由。当访问的 URL 命中平台预留关键字时，服务器会优先走官方内部路由，完全忽略用户仓库内的同名静态文件，直接返回404。<br>其中，Hexo、Jekyll 作为主流建站引擎，被 GitHub 纳入核心预留黑名单；此外，平台接口、服务器相关词汇也会被拦截，这也是部分标签无故404的根本原因。<br>此外，GitHub Pages 服务器为 Linux 环境，路径大小写严格区分，但即便修改关键字大小写，只要词根属于黑名单，依旧会被拦截。</p>
 <h2 id="二、完整祖传关键字黑名单清单（必看）"><a href="#二、完整祖传关键字黑名单清单（必看）" class="headerlink" title="二、完整祖传关键字黑名单清单（必看）"></a>二、完整祖传关键字黑名单清单（必看）</h2><p>以下词汇，禁止用于博客标签名、分类名、自定义页面名、文件夹名及自定义永久链接，否则必触发404拦截，按风险等级排序：</p>
-<h3 id="🔴-核心建站引擎黑名单（最高危，必拦截）"><a href="#🔴-核心建站引擎黑名单（最高危，必拦截）" class="headerlink" title="🔴 核心建站引擎黑名单（最高危，必拦截）"></a>🔴 核心建站引擎黑名单（最高危，必拦截）</h3><p><code>Hexo</code>、<code>Jekyll</code>、<code>shiro</code></p>
+<h3 id="🔴-核心建站引擎黑名单（最高危，必拦截）"><a href="#🔴-核心建站引擎黑名单（最高危，必拦截）" class="headerlink" title="🔴 核心建站引擎黑名单（最高危，必拦截）"></a>🔴 核心建站引擎黑名单（最高危，必拦截）</h3><p><code>Hexo</code>、<code>Jekyll</code></p>
 <h3 id="🔴-GitHub平台原生接口黑名单"><a href="#🔴-GitHub平台原生接口黑名单" class="headerlink" title="🔴 GitHub平台原生接口黑名单"></a>🔴 GitHub平台原生接口黑名单</h3><p><code>GitHub</code>、<code>Git</code>、<code>Pages</code>、<code>Admin</code>、<code>API</code>、<code>Help</code>、<code>Support</code>、<code>Login</code>、<code>Auth</code>、<code>User</code>、<code>Account</code></p>
 <h3 id="🔴-服务器-网络通用高危拦截词"><a href="#🔴-服务器-网络通用高危拦截词" class="headerlink" title="🔴 服务器&amp;网络通用高危拦截词"></a>🔴 服务器&amp;网络通用高危拦截词</h3><p><code>DNS</code>、<code>IP</code>、<code>HTTP</code>、<code>HTTPS</code>、<code>WWW</code>、<code>Root</code>、<code>Config</code><br>注：部分词汇（如DNS）可能存在兼容例外，但不建议复用，避免后续拦截。</p>
 <h3 id="🔴-系统保留通用敏感词"><a href="#🔴-系统保留通用敏感词" class="headerlink" title="🔴 系统保留通用敏感词"></a>🔴 系统保留通用敏感词</h3><p><code>Index</code>、<code>Home</code>、<code>Default</code>、<code>Error</code>、<code>Cache</code>、<code>Static</code></p>

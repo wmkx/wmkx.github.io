@@ -1,8 +1,95 @@
-/* 修复深色模式页脚背景色 */
-[data-theme="dark"] #footer {
+/* ==============================================
+ * Hexo Butterfly 主题 完整 custom.css
+ * 适配：文章版权、上下篇、相关推荐 悬停发光
+ * 作者：清风笑
+ * ============================================== */
+
+/* ---------- 1. 文章版权模块 发光效果 ---------- */
+#post .post-copyright {
+    position: relative;
+    border: 1px solid var(--light-grey);
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+#post .post-copyright:hover {
+    border-color: rgba(232, 237, 250, 0.8);
+    box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
+}
+
+/* ---------- 2. 上下篇分页 悬停发光 + 布局统一 ---------- */
+.pagination-related {
+    position: relative;
+    border: 1px solid var(--light-grey);
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination-related:hover {
+    border-color: rgba(232, 237, 250, 0.8);
+    box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ---------- 3. 相关推荐卡片 悬停发光 ---------- */
+.related-posts .card {
+    position: relative;
+    border: 1px solid var(--light-grey);
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.related-posts .card:hover {
+    border-color: rgba(232, 237, 250, 0.8);
+    box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ---------- 4. 深色模式增强适配 ---------- */
+[data-theme="dark"] #post .post-copyright,
+[data-theme="dark"] .pagination-related,
+[data-theme="dark"] .related-posts .card {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] #post .post-copyright:hover,
+[data-theme="dark"] .pagination-related:hover,
+[data-theme="dark"] .related-posts .card:hover {
+    border-color: rgba(232, 237, 250, 0.7);
+    box-shadow: 0 0 10px rgba(232, 237, 250, 0.5), 0 0 20px rgba(232, 237, 250, 0.35);
+}
+
+/* ---------- 5. 过渡动画全局统一 ---------- */
+#post .post-copyright,
+.pagination-related,
+.related-posts .card {
+    will-change: box-shadow, transform;
+}
+
+/* ========== 6. 修复上一篇/下一篇 & 相关推荐的背景层 ========== */
+[data-theme="dark"] .pagination-related .cover {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .pagination-related {
   background: #121212 !important;
+}
+[data-theme="dark"] .pagination-related a {
   color: #ffffff !important;
 }
-[data-theme="dark"] #footer a {
+
+[data-theme="dark"] .related-posts .card {
+  background: #121212 !important;
+}
+[data-theme="dark"] .related-posts .card-title {
   color: #ffffff !important;
+}
+
+/* ========== 1. 页脚深色模式 ========== */
+[data-theme="dark"] #footer {
+  background: #121212 !important;
+  color: #fff !important;
+}
+[data-theme="dark"] #footer a {
+  color: #fff !important;
 }

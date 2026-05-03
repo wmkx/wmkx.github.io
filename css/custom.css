@@ -19,8 +19,7 @@
 
 /* ---------- 2. 上下篇分页 悬停发光 + 布局统一 ---------- */
 .pagination-related {
-    margin: 10px 0 10px;
-    padding: 0 1px; 
+    margin: 10px 1px;
     position: relative;
     border: 1px solid var(--light-grey);
     border-radius: 6px;

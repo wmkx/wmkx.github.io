@@ -18,14 +18,17 @@
 }
 
 /* ---------- 2. 上下篇分页 悬停发光 + 布局统一 ---------- */
+
+#pagination.pagination-post {
+  overflow: visible !important;
+}
 .pagination-related {
-    margin: 10px 1px;
+    /* margin: 10px 1px; */
     position: relative;
     border: 1px solid var(--light-grey);
     border-radius: 6px;
     transition: all 0.3s ease-in-out;
 }
-
 .pagination-related:hover {
     border-color: rgba(232, 237, 250, 0.8);
     box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);

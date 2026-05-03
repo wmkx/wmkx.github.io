@@ -19,6 +19,7 @@
 
 /* ---------- 2. 上下篇分页 悬停发光 + 布局统一 ---------- */
 .pagination-related {
+    margin: 10px 0 16px;
     position: relative;
     border: 1px solid var(--light-grey);
     border-radius: 6px;
@@ -92,4 +93,11 @@
 }
 [data-theme="dark"] #footer a {
   color: #fff !important;
+}
+
+/* 🔥 深色模式 上下篇按钮 完美复刻版权栏发光效果 */
+:root[data-theme="dark"] nav#pagination.pagination-post {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 2px !important; /* 拉开两个按钮的距离，避免光效互相干扰 */
 }

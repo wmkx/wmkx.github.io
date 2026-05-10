@@ -236,3 +236,72 @@
 @media (max-width: 600px) {
   .category-list { grid-template-columns: 1fr !important; max-width: 100% !important; }
 }
+
+/* ========== 首页卡片 上浮+缩放+外发光+审美级流光 ========== */
+.recent-post-item {
+  position: relative !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  /* 缓动更温润，不生硬不抽风 */
+  transition: all 0.32s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  z-index: 1 !important;
+  background: var(--card-bg) !important;
+}
+
+/* 悬浮：上浮幅度收敛、缩放极微，低调高级 */
+.recent-post-item:hover {
+  transform: translateY(-4px) scale(1.012) !important;
+  box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5) !important;
+  z-index: 10 !important;
+}
+
+/* 封面图微动：幅度克制，不浮夸 */
+.recent-post-item .post-bg {
+  transition: transform 0.45s ease !important;
+}
+.recent-post-item:hover .post-bg {
+  transform: scale(1.035) !important;
+}
+
+/* 流光基础形态：倾斜度、宽度黄金比例 */
+.recent-post-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 45%;     /* 收窄流光宽度，更精致不臃肿 */
+  height: 100%;
+  transform: skewX(-22deg); /* 减小倾斜，更自然不夸张 */
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Light模式：莫兰迪浅青蓝流光 温柔耐看 */
+[data-theme="light"] .recent-post-item::after {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(100, 180, 220, 0.14),
+    transparent
+  );
+}
+
+/* Dark模式：低饱和柔光白 不刺眼不泛白 */
+[data-theme="dark"] .recent-post-item::after {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+}
+
+/* 流光动画：慢速顺滑，扫过节奏很舒服 */
+.recent-post-item:hover::after {
+  animation: cardSweep 1.4s ease-in-out;
+}
+
+@keyframes cardSweep {
+  0%   { left: -200%; }
+  100% { left: 240%; }
+}

@@ -305,3 +305,165 @@
   0%   { left: -200%; }
   100% { left: 240%; }
 }
+
+/* 强制标签云 3列等宽、整齐排列 */
+#aside-content .card-tag-cloud {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+#aside-content .card-tag-cloud a {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 8px 4px !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
+  font-size: 13px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  background: none !important;
+}
+
+/* 随机彩色背景循环（和你截图的配色一致） */
+#aside-content .card-tag-cloud a:nth-child(6n+1) { background: #4cb8b3 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+2) { background: #70b77e !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+3) { background: #d98880 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+4) { background: #85929e !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+5) { background: #f39c12 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+6) { background: #bb8fce !important; }
+
+/* 可选：hover 效果 */
+#aside-content .card-tag-cloud a:hover {
+  opacity: 0.8 !important;
+  transform: translateY(-2px) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* ==================== 首页文章卡片 终极完美版 ==================== */
+.recent-posts .recent-post-items {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 28px !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 10px !important;
+}
+
+.recent-post-item {
+  background: #fff !important;
+  border-radius: 16px !important;
+  padding: 28px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  border: 1px solid #f0f0f0 !important;
+  transition: all 0.3s ease !important;
+  list-style: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 悬浮：上浮 + 外发光 */
+.recent-post-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 30px rgba(255, 122, 156, 0.15), 0 0 18px rgba(255, 122, 156, 0.25) !important;
+  border-color: rgba(255, 122, 156, 0.3) !important;
+}
+
+/* ---------- 底部渐变条：HOVER 才显示 ---------- */
+.recent-post-item::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #ff7a9c, #b388ff) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 999 !important;
+}
+.recent-post-item:hover::after {
+  opacity: 1 !important;
+}
+
+/* ---------- 科技蓝流光 ---------- */
+.recent-post-item::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(90, 180, 255, 0.3), transparent) !important;
+  transition: left 0.6s ease !important;
+  z-index: 1 !important;
+}
+.recent-post-item:hover::before {
+  left: 100% !important;
+}
+
+/* ---------- 文字 ---------- */
+.recent-post-title,
+.recent-post-excerpt,
+.recent-post-meta {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.recent-post-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+}
+.recent-post-item:hover .recent-post-title {
+  color: #489eff !important;
+}
+
+.recent-post-excerpt {
+  color: #666 !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  margin: 16px 0 !important;
+  height: 80px !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.recent-post-meta {
+  font-size: 12px !important;
+  color: #999 !important;
+}
+
+/* ==================== DARK 模式 完美独立 ==================== */
+[data-theme="dark"] .recent-post-item {
+  background: #2b2b2b !important;
+  border-color: #383838 !important;
+}
+
+[data-theme="dark"] .recent-post-item:hover {
+  box-shadow: 0 10px 30px rgba(179, 136, 255, 0.2), 0 0 18px rgba(179, 136, 255, 0.3) !important;
+  border-color: rgba(179, 136, 255, 0.4) !important;
+}
+
+[data-theme="dark"] .recent-post-title {
+  color: #eee !important;
+}
+[data-theme="dark"] .recent-post-excerpt {
+  color: #bbb !important;
+}
+[data-theme="dark"] .recent-post-meta {
+  color: #888 !important;
+}
+
+/* 移动端 */
+@media (max-width: 768px) {
+  .recent-posts .recent-post-items {
+    grid-template-columns: 1fr !important;
+  }
+}

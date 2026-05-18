@@ -392,3 +392,24 @@
     max-width: 100% !important;
   }
 }
+
+/* 修复手机桌面模式下，右侧悬浮按钮不显示的问题 */
+@media (max-width: 900px) {
+  /* 1. 把按钮容器拉回右侧，不受 .layout 影响 */
+  #sidebar {
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 20px !important;
+    z-index: 9999 !important;
+    transform: none !important;
+  }
+
+  /* 2. 按钮保持原大小，不被挤压 */
+  #sidebar > div,
+  #sidebar > button {
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 10px !important;
+    border-radius: 10px !important;
+  }
+}

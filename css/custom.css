@@ -467,3 +467,38 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+/* 强制手机上的桌面模式也显示移动端布局 */
+@media (max-width: 768px) {
+  /* 核心：强制单列布局 */
+  .layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* 主内容区宽度100% */
+  #content-inner {
+    width: 100% !important;
+    padding: 0 12px !important;
+  }
+  /* 边栏强制下移 */
+  #aside-content {
+    width: 100% !important;
+    order: 2 !important;
+    margin-top: 24px !important;
+    padding: 0 12px !important;
+  }
+  /* 文章卡片单列显示 */
+  .recent-posts .recent-post-items {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  /* 标签云防溢出 */
+  #aside-content .card-tags .card-tag-cloud {
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+  /* 边栏分类项防溢出 */
+  #aside-content .aside-list-item {
+    padding: 10px 12px !important;
+  }
+}

@@ -468,37 +468,65 @@
   }
 }
 
-/* 强制手机上的桌面模式也显示移动端布局 */
-@media (max-width: 768px) {
-  /* 核心：强制单列布局 */
+/* ==============================================
+强制手机永远显示移动端单列布局 · 100%生效
+无视桌面模式 / UA / 浏览器伪装
+=============================================== */
+@media (max-width: 900px) {
+  /* 全局强制单列 */
   .layout {
-    display: flex !important;
-    flex-direction: column !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: auto !important;
   }
-  /* 主内容区宽度100% */
+
+  /* 主内容 100% 宽度 */
   #content-inner {
     width: 100% !important;
+    max-width: 100% !important;
     padding: 0 12px !important;
+    margin: 0 auto !important;
+    float: none !important;
   }
-  /* 边栏强制下移 */
+
+  /* 边栏强制变成手机布局，自动下去 */
   #aside-content {
+    display: block !important;
     width: 100% !important;
-    order: 2 !important;
-    margin-top: 24px !important;
+    max-width: 100% !important;
     padding: 0 12px !important;
+    margin: 30px auto 0 !important;
+    float: none !important;
+    clear: both !important;
   }
-  /* 文章卡片单列显示 */
+
+  /* 文章卡片永远单列 */
   .recent-posts .recent-post-items {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
+    max-width: 100% !important;
   }
-  /* 标签云防溢出 */
-  #aside-content .card-tags .card-tag-cloud {
-    justify-content: flex-start !important;
-    gap: 8px !important;
+
+  /* 禁止横向滚动条 */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100% !important;
   }
-  /* 边栏分类项防溢出 */
-  #aside-content .aside-list-item {
-    padding: 10px 12px !important;
-  }
+}
+
+/* 终极兜底：只要是手机，无论桌面模式与否，永远单列 */
+html[data-useragent*="Mobile"] .layout,
+html[data-useragent*="Android"] .layout,
+html[data-useragent*="iPhone"] .layout,
+html[data-useragent*="iPad"] .layout {
+  display: block !important;
+}
+html[data-useragent*="Mobile"] #aside-content,
+html[data-useragent*="Android"] #aside-content,
+html[data-useragent*="iPhone"] #aside-content,
+html[data-useragent*="iPad"] #aside-content {
+  width: 100% !important;
+  display: block !important;
+  margin-top: 30px !important;
 }

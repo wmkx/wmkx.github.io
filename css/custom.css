@@ -3,7 +3,6 @@
  * 适配：文章版权、上下篇、相关推荐 悬停发光
  * 作者：清风笑
  * ============================================== */
-
 /* ---------- 1. 文章版权模块 发光效果 ---------- */
 #post .post-copyright {
     position: relative;
@@ -11,14 +10,11 @@
     border-radius: 6px;
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
-
 #post .post-copyright:hover {
     border-color: rgba(232, 237, 250, 0.8);
     box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
 }
-
 /* ---------- 2. 上下篇分页 悬停发光 + 布局统一 ---------- */
-
 #pagination.pagination-post {
   overflow: visible !important;
 }
@@ -34,7 +30,6 @@
     box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
     transform: translateY(-1px);
 }
-
 /* ---------- 3. 相关推荐卡片 悬停发光 ---------- */
 .related-posts .card {
     position: relative;
@@ -42,53 +37,45 @@
     border-radius: 6px;
     transition: all 0.3s ease-in-out;
 }
-
 .related-posts .card:hover {
     border-color: rgba(232, 237, 250, 0.8);
     box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5);
     transform: translateY(-1px);
 }
-
 /* ---------- 4. 深色模式增强适配 ---------- */
 [data-theme="dark"] #post .post-copyright,
 [data-theme="dark"] .pagination-related,
 [data-theme="dark"] .related-posts .card {
     border-color: rgba(255, 255, 255, 0.15);
 }
-
 [data-theme="dark"] #post .post-copyright:hover,
 [data-theme="dark"] .pagination-related:hover,
 [data-theme="dark"] .related-posts .card:hover {
     border-color: rgba(232, 237, 250, 0.7);
     box-shadow: 0 0 10px rgba(232, 237, 250, 0.5), 0 0 20px rgba(232, 237, 250, 0.35);
 }
-
 /* ---------- 5. 过渡动画全局统一 ---------- */
 #post .post-copyright,
 .pagination-related,
 .related-posts .card {
     will-change: box-shadow, transform;
 }
-
 /* ========== 6. 修复上一篇/下一篇 & 相关推荐的背景层 ========== */
 [data-theme="dark"] .pagination-related .cover {
   background: transparent !important;
 }
-
 [data-theme="dark"] .pagination-related {
   background: #121212 !important;
 }
 [data-theme="dark"] .pagination-related a {
   color: #ffffff !important;
 }
-
 [data-theme="dark"] .related-posts .card {
   background: #121212 !important;
 }
 [data-theme="dark"] .related-posts .card-title {
   color: #ffffff !important;
 }
-
 /* ========== 1. 页脚深色模式 ========== */
 [data-theme="dark"] #footer {
   background: #121212 !important;
@@ -97,16 +84,13 @@
 [data-theme="dark"] #footer a {
   color: #fff !important;
 }
-
 /* 🔥 深色模式 上下篇按钮 完美复刻版权栏发光效果 */
 :root[data-theme="dark"] nav#pagination.pagination-post {
   display: flex !important;
   justify-content: space-between !important;
   gap: 2px !important; /* 拉开两个按钮的距离，避免光效互相干扰 */
 }
-
 /* ========== 分类页美化 ========== */
-
 .category-list {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -115,7 +99,6 @@
   margin: 0 auto !important;
   padding: 0 !important;
 }
-
 .category-list-item {
   list-style: none !important;
   background: #ffffff !important;
@@ -130,13 +113,11 @@
   align-items: center !important;
   justify-content: center !important;
 }
-
 .category-list-item:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 8px 24px rgba(180, 130, 255, 0.12) !important;
   border-color: rgba(180, 130, 255, 0.2) !important;
 }
-
 .category-list-item::after {
   content: "" !important;
   position: absolute !important;
@@ -148,11 +129,9 @@
   opacity: 0 !important;
   transition: opacity 0.25s ease !important;
 }
-
 .category-list-item:hover::after {
   opacity: 1 !important;
 }
-
 /* 核心：同一行、居中、无空隙 */
 .category-list-item a {
   display: inline-flex !important;
@@ -164,13 +143,11 @@
   font-weight: 500 !important;
   gap: 6px !important;
 }
-
 .category-list-item a::before {
   content: "🌸" !important;
   font-size: 18px !important;
   filter: drop-shadow(0 1px 2px rgba(255, 122, 156, 0.3)) !important;
 }
-
 /* 文章数紧贴文字 无空隙 */
 .category-list-count {
   background: #f5f0f8 !important;
@@ -182,11 +159,9 @@
   margin-left: 0px !important; /* 0 空隙 */
   transition: background 0.25s ease !important;
 }
-
 .category-list-item:hover .category-list-count {
   background: #e8dff0 !important;
 }
-
 #page .page-title {
   text-align: center !important;
   margin-bottom: 35px !important;
@@ -195,7 +170,6 @@
   color: #444 !important;
   position: relative !important;
 }
-
 #page .page-title::after {
   content: "" !important;
   position: absolute !important;
@@ -207,7 +181,6 @@
   background: linear-gradient(90deg, #ff7a9c, #b388ff) !important;
   border-radius: 2px !important;
 }
-
 /* 暗黑模式 */
 [data-theme="dark"] .category-list-item {
   background: #2b2b2b !important;
@@ -228,120 +201,12 @@
 [data-theme="dark"] #page .page-title {
   color: #ddd !important;
 }
-
 /* 移动端 */
 @media (max-width: 900px) {
   .category-list { grid-template-columns: repeat(2, 1fr) !important; max-width: 600px !important; }
 }
 @media (max-width: 600px) {
   .category-list { grid-template-columns: 1fr !important; max-width: 100% !important; }
-}
-
-/* ========== 首页卡片 上浮+缩放+外发光+审美级流光 ========== */
-.recent-post-item {
-  position: relative !important;
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  /* 缓动更温润，不生硬不抽风 */
-  transition: all 0.32s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-  z-index: 1 !important;
-  background: var(--card-bg) !important;
-}
-
-/* 悬浮：上浮幅度收敛、缩放极微，低调高级 */
-.recent-post-item:hover {
-  transform: translateY(-4px) scale(1.012) !important;
-  box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 0 16px rgba(232, 237, 250, 0.5) !important;
-  z-index: 10 !important;
-}
-
-/* 封面图微动：幅度克制，不浮夸 */
-.recent-post-item .post-bg {
-  transition: transform 0.45s ease !important;
-}
-.recent-post-item:hover .post-bg {
-  transform: scale(1.035) !important;
-}
-
-/* 流光基础形态：倾斜度、宽度黄金比例 */
-.recent-post-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -200%;
-  width: 45%;     /* 收窄流光宽度，更精致不臃肿 */
-  height: 100%;
-  transform: skewX(-22deg); /* 减小倾斜，更自然不夸张 */
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Light模式：莫兰迪浅青蓝流光 温柔耐看 */
-[data-theme="light"] .recent-post-item::after {
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(100, 180, 220, 0.14),
-    transparent
-  );
-}
-
-/* Dark模式：低饱和柔光白 不刺眼不泛白 */
-[data-theme="dark"] .recent-post-item::after {
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.16),
-    transparent
-  );
-}
-
-/* 流光动画：慢速顺滑，扫过节奏很舒服 */
-.recent-post-item:hover::after {
-  animation: cardSweep 1.4s ease-in-out;
-}
-
-@keyframes cardSweep {
-  0%   { left: -200%; }
-  100% { left: 240%; }
-}
-
-/* 强制标签云 3列等宽、整齐排列 */
-#aside-content .card-tag-cloud {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 8px !important;
-  width: 100% !important;
-}
-
-#aside-content .card-tag-cloud a {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 8px 4px !important;
-  margin: 0 !important;
-  border-radius: 20px !important;
-  font-size: 13px !important;
-  color: #fff !important;
-  text-decoration: none !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  background: none !important;
-}
-
-/* 随机彩色背景循环（和你截图的配色一致） */
-#aside-content .card-tag-cloud a:nth-child(6n+1) { background: #4cb8b3 !important; }
-#aside-content .card-tag-cloud a:nth-child(6n+2) { background: #70b77e !important; }
-#aside-content .card-tag-cloud a:nth-child(6n+3) { background: #d98880 !important; }
-#aside-content .card-tag-cloud a:nth-child(6n+4) { background: #85929e !important; }
-#aside-content .card-tag-cloud a:nth-child(6n+5) { background: #f39c12 !important; }
-#aside-content .card-tag-cloud a:nth-child(6n+6) { background: #bb8fce !important; }
-
-/* 可选：hover 效果 */
-#aside-content .card-tag-cloud a:hover {
-  opacity: 0.8 !important;
-  transform: translateY(-2px) !important;
-  transition: all 0.3s ease !important;
 }
 
 /* ==================== 首页文章卡片 终极完美版 ==================== */
@@ -353,7 +218,6 @@
   margin: 0 auto !important;
   padding: 10px !important;
 }
-
 .recent-post-item {
   background: #fff !important;
   border-radius: 16px !important;
@@ -365,14 +229,12 @@
   position: relative !important;
   overflow: hidden !important;
 }
-
 /* 悬浮：上浮 + 外发光 */
 .recent-post-item:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 10px 30px rgba(255, 122, 156, 0.15), 0 0 18px rgba(255, 122, 156, 0.25) !important;
   border-color: rgba(255, 122, 156, 0.3) !important;
 }
-
 /* ---------- 底部渐变条：HOVER 才显示 ---------- */
 .recent-post-item::after {
   content: "" !important;
@@ -389,7 +251,6 @@
 .recent-post-item:hover::after {
   opacity: 1 !important;
 }
-
 /* ---------- 科技蓝流光 ---------- */
 .recent-post-item::before {
   content: "" !important;
@@ -405,7 +266,6 @@
 .recent-post-item:hover::before {
   left: 100% !important;
 }
-
 /* ---------- 文字 ---------- */
 .recent-post-title,
 .recent-post-excerpt,
@@ -413,7 +273,6 @@
   position: relative !important;
   z-index: 2 !important;
 }
-
 .recent-post-title {
   font-size: 18px !important;
   font-weight: 600 !important;
@@ -422,7 +281,6 @@
 .recent-post-item:hover .recent-post-title {
   color: #489eff !important;
 }
-
 .recent-post-excerpt {
   color: #666 !important;
   font-size: 14px !important;
@@ -434,23 +292,19 @@
   -webkit-line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
 }
-
 .recent-post-meta {
   font-size: 12px !important;
   color: #999 !important;
 }
-
 /* ==================== DARK 模式 完美独立 ==================== */
 [data-theme="dark"] .recent-post-item {
   background: #2b2b2b !important;
   border-color: #383838 !important;
 }
-
 [data-theme="dark"] .recent-post-item:hover {
   box-shadow: 0 10px 30px rgba(179, 136, 255, 0.2), 0 0 18px rgba(179, 136, 255, 0.3) !important;
   border-color: rgba(179, 136, 255, 0.4) !important;
 }
-
 [data-theme="dark"] .recent-post-title {
   color: #eee !important;
 }
@@ -461,6 +315,41 @@
   color: #888 !important;
 }
 
+/* 强制标签云 3列等宽、整齐排列 */
+#aside-content .card-tag-cloud {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+#aside-content .card-tag-cloud a {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 8px 4px !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
+  font-size: 13px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  background: none !important;
+}
+/* 随机彩色背景循环 */
+#aside-content .card-tag-cloud a:nth-child(6n+1) { background: #4cb8b3 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+2) { background: #70b77e !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+3) { background: #d98880 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+4) { background: #85929e !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+5) { background: #f39c12 !important; }
+#aside-content .card-tag-cloud a:nth-child(6n+6) { background: #bb8fce !important; }
+/* hover 效果 */
+#aside-content .card-tag-cloud a:hover {
+  opacity: 0.8 !important;
+  transform: translateY(-2px) !important;
+  transition: all 0.3s ease !important;
+}
+
 /* 移动端 */
 @media (max-width: 768px) {
   .recent-posts .recent-post-items {
@@ -469,64 +358,32 @@
 }
 
 /* ==============================================
-强制手机永远显示移动端单列布局 · 100%生效
-无视桌面模式 / UA / 浏览器伪装
+✅ 只加这个：手机桌面模式也强制正常移动端布局（不破坏任何原有效果）
 =============================================== */
 @media (max-width: 900px) {
-  /* 全局强制单列 */
   .layout {
     display: block !important;
     width: 100% !important;
-    min-width: auto !important;
   }
-
-  /* 主内容 100% 宽度 */
   #content-inner {
     width: 100% !important;
-    max-width: 100% !important;
     padding: 0 12px !important;
     margin: 0 auto !important;
-    float: none !important;
   }
-
-  /* 边栏强制变成手机布局，自动下去 */
   #aside-content {
-    display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
     padding: 0 12px !important;
     margin: 30px auto 0 !important;
-    float: none !important;
+    display: block !important;
     clear: both !important;
   }
-
-  /* 文章卡片永远单列 */
   .recent-posts .recent-post-items {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
-    max-width: 100% !important;
   }
-
-  /* 禁止横向滚动条 */
   html, body {
     overflow-x: hidden !important;
     width: 100vw !important;
     max-width: 100% !important;
   }
-}
-
-/* 终极兜底：只要是手机，无论桌面模式与否，永远单列 */
-html[data-useragent*="Mobile"] .layout,
-html[data-useragent*="Android"] .layout,
-html[data-useragent*="iPhone"] .layout,
-html[data-useragent*="iPad"] .layout {
-  display: block !important;
-}
-html[data-useragent*="Mobile"] #aside-content,
-html[data-useragent*="Android"] #aside-content,
-html[data-useragent*="iPhone"] #aside-content,
-html[data-useragent*="iPad"] #aside-content {
-  width: 100% !important;
-  display: block !important;
-  margin-top: 30px !important;
 }

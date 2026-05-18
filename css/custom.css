@@ -315,66 +315,57 @@
   color: #888 !important;
 }
 
-/* 标签云 3列紧凑精致版（还原图2效果） */
+/* 强制标签云 3列等宽、整齐排列 */
 #aside-content .card-tag-cloud {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 6px !important; /* 缩小标签间距 */
+  gap: 8px !important;
   width: 100% !important;
-  padding: 0 4px !important;
 }
-
 #aside-content .card-tag-cloud a {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  padding: 6px 4px !important; /* 缩小上下内边距 */
+  padding: 8px 4px !important;
   margin: 0 !important;
-  border-radius: 16px !important; /* 轻微缩小圆角，更精致 */
-  font-size: 11px !important; /* 缩小字号 */
+  border-radius: 20px !important;
+  font-size: 13px !important;
   color: #fff !important;
   text-decoration: none !important;
   white-space: nowrap !important;
   text-align: center !important;
   background: none !important;
-  line-height: 1.2 !important;
 }
-
-/* 随机彩色背景循环（保留原配色） */
+/* 随机彩色背景循环 */
 #aside-content .card-tag-cloud a:nth-child(6n+1) { background: #4cb8b3 !important; }
 #aside-content .card-tag-cloud a:nth-child(6n+2) { background: #70b77e !important; }
 #aside-content .card-tag-cloud a:nth-child(6n+3) { background: #d98880 !important; }
 #aside-content .card-tag-cloud a:nth-child(6n+4) { background: #85929e !important; }
 #aside-content .card-tag-cloud a:nth-child(6n+5) { background: #f39c12 !important; }
 #aside-content .card-tag-cloud a:nth-child(6n+6) { background: #bb8fce !important; }
-
-/* hover效果不变 */
+/* hover 效果 */
 #aside-content .card-tag-cloud a:hover {
   opacity: 0.8 !important;
   transform: translateY(-2px) !important;
   transition: all 0.3s ease !important;
 }
 
-/* 移动端 */
-@media (max-width: 768px) {
-  .recent-posts .recent-post-items {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* ==============================================
-✅ 只加这个：手机桌面模式也强制正常移动端布局（不破坏任何原有效果）
-=============================================== */
+/* ==================== 移动端统一适配（修复所有问题：布局+标签+悬浮按钮） ==================== */
 @media (max-width: 900px) {
+  /* 布局强制单列 */
   .layout {
     display: block !important;
     width: 100% !important;
   }
+
+  /* 主内容区 */
   #content-inner {
     width: 100% !important;
     padding: 0 12px !important;
     margin: 0 auto !important;
   }
+
+  /* 边栏 */
   #aside-content {
     width: 100% !important;
     padding: 0 12px !important;
@@ -382,34 +373,28 @@
     display: block !important;
     clear: both !important;
   }
+
+  /* 文章卡片单列 */
   .recent-posts .recent-post-items {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
   }
+
+  /* 禁止横向滚动 */
   html, body {
     overflow-x: hidden !important;
     width: 100vw !important;
     max-width: 100% !important;
   }
-}
 
-/* 修复手机桌面模式下，右侧悬浮按钮不显示的问题 */
-@media (max-width: 900px) {
-  /* 1. 把按钮容器拉回右侧，不受 .layout 影响 */
+  /* ✅ 修复：右下角悬浮开关（ you want 这个！） */
+  #rightside,
   #sidebar {
     position: fixed !important;
-    right: 12px !important;
-    bottom: 20px !important;
-    z-index: 9999 !important;
-    transform: none !important;
-  }
-
-  /* 2. 按钮保持原大小，不被挤压 */
-  #sidebar > div,
-  #sidebar > button {
-    width: 50px !important;
-    height: 50px !important;
-    margin-bottom: 10px !important;
-    border-radius: 10px !important;
+    right: 10px !important;
+    z-index: 99999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
